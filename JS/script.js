@@ -1,4 +1,5 @@
 const searchBtn = document.querySelector("#search-button");
+const searchFormElement = document.querySelector("#search-form");
 
 async function getWeather() {
   try {
@@ -60,23 +61,24 @@ function displayWeather(currentWeather) {
   location.textContent = currentWeather.place;
   displayDiv.appendChild(location);
   const conditions = document.createElement("p");
-  conditions.textContent = currentWeather.conditions;
+  conditions.textContent = "Conditions: " + currentWeather.conditions;
   displayDiv.appendChild(conditions);
   const temperature = document.createElement("p");
-  temperature.textContent = currentWeather.temperature + " Degrees";
+  temperature.textContent =
+    "Temperature: " + currentWeather.temperature + " Degrees";
   displayDiv.append(temperature);
   const feelslike = document.createElement("p");
-  feelslike.textContent = currentWeather.feels;
+  feelslike.textContent = "Feels like: " + currentWeather.feels + " Degrees";
   displayDiv.appendChild(feelslike);
   const humidity = document.createElement("p");
-  humidity.textContent = currentWeather.humidity;
+  humidity.textContent = "Humidity: " + currentWeather.humidity;
   displayDiv.appendChild(humidity);
 }
 
 function clearDOM() {
   const nodeList = document.querySelectorAll("p");
   if (nodeList !== null) {
-    for (let i = 0; 1 < nodeList.length; i++) {
+    for (let i = 0; i < nodeList.length; i++) {
       nodeList[i].remove();
     }
   }
